@@ -31,7 +31,7 @@
         /* Navigation */
         nav {
             background-color: rgba(10, 10, 10, 0.95);
-            padding: 1rem 5%;
+            padding: 0.5rem 5%; /* Adjusted padding for image logo */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -43,17 +43,16 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
-        
-        .logo i {
-            color: var(--primary-color);
+
+        /* Styling for the new logo image */
+        .logo img {
+            height: 50px; /* Adjust height to fit navbar */
+            width: auto;
+            display: block;
         }
 
         .nav-links a {
@@ -241,13 +240,17 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1rem; }
+            .logo img { height: 40px; } /* Smaller logo on mobile */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo"><i class="fa-solid fa-car-sparkles"></i> Deep Clean Auto</a>
+        <a href="#" class="logo">
+            <!-- Added the requested image here -->
+            <img src="https://scontent.fcps3-1.fna.fbcdn.net/v/t39.30808-6/524563547_1328596785939264_8985602690853168778_n.png?stp=dst-png&cstp=mx851x315&ctp=s851x315&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=uWMnlHNkf28Q7kNvwEz1f4j&_nc_oc=AdqGo5Ipb0_f2tuhla829B63QPqbZI-05aO9Y12YgIE7R6MX6qd53a2NLI9f11itwFubUYAMrTkYJGo1XUyuOxM5&_nc_zt=23&_nc_ht=scontent.fcps3-1.fna&_nc_gid=ry8mew_WC8UaakaWWEaOsg&_nc_ss=7b289&oh=00_AQHxtPTFxrRDaEa1dq9up7cfbzLIs48y2jxb6zIsEx10WA&oe=6A71D81A" alt="Deep Clean Auto Detailing Logo">
+        </a>
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#services">Services & Pricing</a>
@@ -307,7 +310,7 @@
                 <p class="desc">Our most requested exterior service, perfect for restoring your car's glossy finish. Removes embedded contaminants that standard washes miss.</p>
                 <ul class="features">
                     <li><i class="fa-solid fa-check"></i> Includes everything in the Express Wash</li>
-                    <li><i class="fa-solid fa-check"></i> Chemical decontamination (iron remover)</li>
+                    <!-- Removed: Chemical decontamination (iron remover) -->
                     <li><i class="fa-solid fa-check"></i> Clay bar treatment for bonded contaminants</li>
                     <li><i class="fa-solid fa-check"></i> Durable paint sealant (4-6 months protection)</li>
                 </ul>
