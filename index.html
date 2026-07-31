@@ -13,6 +13,7 @@
             --bg-card: #1a1a1a;
             --text-light: #f4f4f4;
             --text-muted: #aaaaaa;
+            --star-color: #ffc107;
         }
 
         * {
@@ -59,7 +60,7 @@
         .nav-links a {
             color: var(--text-light);
             text-decoration: none;
-            margin-left: 2rem;
+            margin-left: 1.5rem;
             transition: color 0.3s;
             font-weight: 500;
         }
@@ -88,7 +89,6 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            /* Replaced the stock image with your provided Facebook image */
             background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.8)), 
                         url('https://scontent.fcps3-1.fna.fbcdn.net/v/t39.30808-6/524563547_1328596785939264_8985602690853168778_n.png?stp=dst-png&cstp=mx851x315&ctp=s851x315&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=uWMnlHNkf28Q7kNvwEz1f4j&_nc_oc=AdqGo5Ipb0_f2tuhla829B63QPqbZI-05aO9Y12YgIE7R6MX6qd53a2NLI9f11itwFubUYAMrTkYJGo1XUyuOxM5&_nc_zt=23&_nc_ht=scontent.fcps3-1.fna&_nc_gid=ry8mew_WC8UaakaWWEaOsg&_nc_ss=7b289&oh=00_AQHxtPTFxrRDaEa1dq9up7cfbzLIs48y2jxb6zIsEx10WA&oe=6A71D81A') center/cover;
             display: flex;
@@ -98,6 +98,23 @@
             text-align: center;
             padding: 0 20px;
             margin-top: 60px;
+        }
+        
+        .hero-rating {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .hero-rating .stars {
+            color: var(--star-color);
         }
 
         .hero h1 {
@@ -130,8 +147,8 @@
             color: var(--primary-color);
         }
 
-        /* Packages Grid */
-        .packages {
+        /* Packages & Reviews Grid */
+        .packages, .reviews-section {
             padding: 0 5%;
             max-width: 1400px;
             margin: 0 auto;
@@ -207,14 +224,86 @@
             border-left: 3px solid var(--primary-color);
             margin-top: auto;
         }
+        
+        /* Review Cards specific */
+        .review-card {
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .review-card i.fa-quote-left {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.05);
+        }
+
+        .review-stars {
+            color: var(--star-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .review-text {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .review-author {
+            font-weight: bold;
+            color: white;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .review-author i {
+            color: var(--primary-color);
+        }
 
         /* Footer / Contact */
         footer {
             background-color: #050505;
-            padding: 4rem 5% 2rem;
+            padding: 5rem 5% 2rem;
             margin-top: 5rem;
             text-align: center;
             border-top: 1px solid #222;
+        }
+        
+        .contact-info-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info-box a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info-box a:hover {
+            color: var(--primary-color);
+        }
+        
+        .contact-info-box i {
+            color: var(--primary-color);
         }
 
         .social-links {
@@ -248,17 +337,27 @@
 <body>
 
     <nav>
-        <!-- Reverted the logo back to text and sparkle icon so the image shines as the hero background -->
         <a href="#" class="logo"><i class="fa-solid fa-car-sparkles"></i> Deep Clean Auto</a>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#services">Services & Pricing</a>
+            <a href="#services">Services</a>
+            <a href="#reviews">Reviews</a>
             <a href="#contact">Contact</a>
         </div>
         <a href="https://www.facebook.com/DeepCleanAuto/" target="_blank" class="btn-primary">Book Appointment</a>
     </nav>
 
     <header class="hero" id="home">
+        <div class="hero-rating">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <span>5-Star Rated Auto Detailing</span>
+        </div>
         <h1>Experience The <span>Ultimate Shine</span></h1>
         <p>Professional auto detailing services designed to restore, protect, and maintain your vehicle's value. We bring the showroom look right back to your driveway.</p>
         <a href="#services" class="btn-primary">View Our Packages</a>
@@ -336,9 +435,121 @@
         </div>
     </section>
 
+    <!-- NEW REVIEWS SECTION -->
+    <section id="reviews" class="reviews-section">
+        <h2 class="section-title">Customer <span>Reviews</span></h2>
+        
+        <div class="grid">
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"They did a fantastic job detailing my 2022 Toyota Corolla Hatchback. Super convenient, professional, and thorough. The car looks and smells brand new inside and out. Highly recommend if you’re looking for quality work without leaving your driveway!"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Gisselle Barcenas</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Got my 2014 jeep patriot detailed. I have two young ones so it was a big job. It looks brand new and didn’t have a strong chemical smell after! Definitely recommend"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Makayla Boss</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Spectacular job done!!! Left my vehicle like new. I give it five !!! Very happy with the service. % recommended!!!!"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Kim Ramirez</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Awesome detail, my car looks brand new!! Best part is they came right to my house highly recommend!!"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Katie Lacey Nicholas</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Quality work and price PLUS they come to you!!! Would recommend to anyone"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Lacey Dahl</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"It was so convenient that they came to our house and they took their time to do a wonderful job! Now, when we get in the van, it feels, smells, and looks like new again! Thanks!"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Kathy Wielhouwer</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"They did an awesome job on my van. And the fact that they came to my house to do it was an added bonus."</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Ashley Wert</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"They did a awesome job! Let them do my Chevy Tahoe! They made sure everything could be cleaned as possible! They were great people and handed out great service. They were very friendly people and I will surely asked them again to clean any of my cars anytime!"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Juan Noguez</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"They do an awesome job on my Jeep Grand Cherokee, the snow didn’t stop them from performing a highly detailed interior cleaning and shampoo. They were professional and on time would highly recommend!"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Corey Ryan</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"They did a amazing job on my van and charger. Come to you and very honest and knowledgeable. I will totally use them again and again. Highly recommend"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> William Hansma</div>
+            </div>
+
+            <div class="review-card">
+                <i class="fa-solid fa-quote-left"></i>
+                <div class="review-stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="review-text">"Amazing work ! We needed our Kia clean to sell it and it looks brand new! Highly recommend!"</p>
+                <div class="review-author"><i class="fa-brands fa-facebook"></i> Brittney Espinoza</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UPDATED FOOTER -->
     <footer id="contact">
         <h2>Ready for a Deep Clean?</h2>
-        <p style="color: var(--text-muted); margin-top: 1rem;">Connect with us on Facebook to book your appointment or ask any questions.</p>
+        <p style="color: var(--text-muted); margin-top: 1rem;">Reach out today to book your appointment or ask any questions.</p>
+        
+        <div class="contact-info-box">
+            <a href="tel:6166259320"><i class="fa-solid fa-phone"></i> 616-625-9320</a>
+            <a href="mailto:deepcleanautodetailing20@gmail.com"><i class="fa-solid fa-envelope"></i> deepcleanautodetailing20@gmail.com</a>
+        </div>
         
         <div class="social-links">
             <a href="https://www.facebook.com/DeepCleanAuto/" target="_blank" title="Visit our Facebook Page">
