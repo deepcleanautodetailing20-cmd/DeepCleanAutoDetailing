@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Clean Auto Detailing</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0088ff;
+            --primary-dark: #005bb5;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-light: #f4f4f4;
+            --text-muted: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.4)), 
+                        url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&q=80&w=1920') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 5rem 0 3rem;
+            color: white;
+        }
+        
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* Packages Grid */
+        .packages {
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 10px;
+            padding: 2rem;
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 136, 255, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+        }
+
+        .card p.desc {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .features i {
+            color: var(--primary-color);
+            margin-top: 4px;
+        }
+
+        .best-for {
+            background: rgba(0, 136, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--primary-color);
+            margin-top: auto;
+        }
+
+        /* Footer / Contact */
+        footer {
+            background-color: #050505;
+            padding: 4rem 5% 2rem;
+            margin-top: 5rem;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 2rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .disclaimer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        @media(max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo"><i class="fa-solid fa-car-sparkles"></i> Deep Clean Auto</a>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services & Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="https://www.facebook.com/DeepCleanAuto/" target="_blank" class="btn-primary">Book Appointment</a>
+    </nav>
+
+    <header class="hero" id="home">
+        <h1>Experience The <span>Ultimate Shine</span></h1>
+        <p>Professional auto detailing services designed to restore, protect, and maintain your vehicle's value. We bring the showroom look right back to your driveway.</p>
+        <a href="#services" class="btn-primary">View Our Packages</a>
+    </header>
+
+    <section id="services" class="packages">
+        <h2 class="section-title">Our Detailing <span>Packages</span></h2>
+        <p class="disclaimer text-center">*Please note that prices may vary slightly based on the size and condition of your vehicle (e.g., sedan, SUV, truck).*</p>
+        
+        <div class="grid">
+            
+            <!-- Interior Deep Clean -->
+            <div class="card">
+                <h3>The Signature Interior Deep Clean</h3>
+                <div class="price">$180 - $240</div>
+                <p class="desc">Our most popular interior service, designed to bring your car's cabin back to its best possible condition. Tackles built-up dirt, light stains, and odors to leave the interior sanitized.</p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> Steam cleaning to sanitize vents & cupholders</li>
+                    <li><i class="fa-solid fa-check"></i> Shampoo all carpets & cloth seats to lift dirt</li>
+                    <li><i class="fa-solid fa-check"></i> UV protectant on hard surfaces (dashboards)</li>
+                    <li><i class="fa-solid fa-check"></i> Specialized cleaner & conditioner for leather</li>
+                </ul>
+                <div class="best-for">
+                    <strong>Best For:</strong> Cars that have accumulated dirt and grime over time or need more than a basic cleaning.
+                </div>
+            </div>
+
+            <!-- Express Interior -->
+            <div class="card">
+                <h3>The Express Interior Tidy</h3>
+                <div class="price">Starting at $125</div>
+                <p class="desc">Designed for vehicles that are already in good condition and just need a quick, professional refresh. Perfect as a maintenance service.</p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> Thorough vacuum of all carpets and seats</li>
+                    <li><i class="fa-solid fa-check"></i> Wipe-down of all hard interior surfaces</li>
+                    <li><i class="fa-solid fa-check"></i> Cleaning of interior windows</li>
+                    <li><i class="fa-solid fa-check"></i> Cleaning of door jambs</li>
+                </ul>
+                <div class="best-for">
+                    <strong>Best For:</strong> Cars that are regularly maintained and just need a professional touch-up.
+                </div>
+            </div>
+
+            <!-- Signature Shine & Decon -->
+            <div class="card">
+                <h3>The Signature Shine & Decon</h3>
+                <div class="price">Starting at $180</div>
+                <p class="desc">Our most requested exterior service, perfect for restoring your car's glossy finish. Removes embedded contaminants that standard washes miss.</p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> Includes everything in the Express Wash</li>
+                    <li><i class="fa-solid fa-check"></i> Chemical decontamination (iron remover)</li>
+                    <li><i class="fa-solid fa-check"></i> Clay bar treatment for bonded contaminants</li>
+                    <li><i class="fa-solid fa-check"></i> Durable paint sealant (4-6 months protection)</li>
+                </ul>
+                <div class="best-for">
+                    <strong>Best For:</strong> Restoring the shine on your vehicle's paint and providing long-lasting protection.
+                </div>
+            </div>
+
+            <!-- Express Wash -->
+            <div class="card">
+                <h3>The Express Wash</h3>
+                <div class="price">Contact for Price</div>
+                <p class="desc">A high-quality, basic exterior wash designed to safely remove loose dirt and road grime without scratching your clear coat.</p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> Safe hand wash process</li>
+                    <li><i class="fa-solid fa-check"></i> Wheel and tire cleaning</li>
+                    <li><i class="fa-solid fa-check"></i> Spot-free drying</li>
+                    <li><i class="fa-solid fa-check"></i> Tire dressing applied</li>
+                </ul>
+                <div class="best-for">
+                    <strong>Best For:</strong> A routine clean to keep your daily driver looking sharp.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Ready for a Deep Clean?</h2>
+        <p style="color: var(--text-muted); margin-top: 1rem;">Connect with us on Facebook to book your appointment or ask any questions.</p>
+        
+        <div class="social-links">
+            <a href="https://www.facebook.com/DeepCleanAuto/" target="_blank" title="Visit our Facebook Page">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.facebook.com/DeepCleanAuto/" target="_blank" title="Message us on Messenger">
+                <i class="fa-brands fa-facebook-messenger"></i>
+            </a>
+        </div>
+        
+        <a href="https://www.facebook.com/DeepCleanAuto/" target="_blank" class="btn-primary" style="margin-bottom: 2rem;">Message Us on Facebook</a>
+        
+        <p style="color: #444;">&copy; 2026 Deep Clean Auto Detailing. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
